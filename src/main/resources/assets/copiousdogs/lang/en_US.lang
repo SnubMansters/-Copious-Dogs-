@@ -1,0 +1,48 @@
+#Creative tabs
+itemGroup.tabCopiousDogs=Copious Dogs
+
+#GUIs
+gui.copiousdogs.health=Health
+gui.copiousdogs.namedog=Name your dog!
+gui.copiousdogs.rename=Rename
+gui.copiousdogs.breed=Breed
+gui.copiousdogs.energy=Energy
+gui.copiousdogs.aggressiveness=Aggressiveness
+gui.copiousdogs.done=Done
+
+#Items
+item.copiousdogs.dogBiscuit.name=Dog Biscuit
+item.copiousdogs.dogCollar.name=Dog Collar
+item.copiousdogs.dogDish.name=Dog Dish
+item.copiousdogs.leash.name=Leash
+item.copiousdogs.analyzer.name=Analyzer
+item.copiousdogs.whistle.name=Dog Whistle
+
+#Entities
+entity.CopiousDogs.beagle.name=Beagle
+entity.CopiousDogs.bernese_mountain.name=Bernese Mountain
+entity.CopiousDogs.golden_retriever.name=Golden Retriever
+entity.CopiousDogs.husky.name=Husky
+entity.CopiousDogs.chihuahua.name=Chihuahua
+entity.CopiousDogs.french_bulldog.name=French Bulldog
+entity.CopiousDogs.german_shepherd.name=German Shepherd
+entity.CopiousDogs.dalmatian.name=Dalmatian
+entity.CopiousDogs.great_dane.name=Great Dane
+entity.CopiousDogs.boxer.name=Boxer
+entity.CopiousDogs.cardigan_corgi.name=Cardigan Welsh Corgi
+entity.CopiousDogs.collie.name=Collie
+entity.CopiousDogs.doberman.name=Doberman Pinscher
+entity.CopiousDogs.pomeranian.name=Pomeranian
+entity.CopiousDogs.poodle.name=Poodle
+entity.CopiousDogs.pug.name=Pug
+entity.CopiousDogs.saint_bernard.name=Saint Bernard
+entity.CopiousDogs.yorkshire.name=Yorkshire Terrier
+entity.CopiousDogs.american_bulldog.name=American Bulldog
+entity.CopiousDogs.eskimo_spitz.name=American Eskimo Spitz
+entity.CopiousDogs.australian_shepherd.name=Australian Shepherd
+entity.CopiousDogs.bloodhound.name=Bloodhound
+entity.CopiousDogs.dachshund.name=Dachshund
+entity.CopiousDogs.newfoundland.name=Newfoundland
+entity.CopiousDogs.papillon.name=Papillon
+entity.CopiousDogs.pembroke.name=Pembroke Welsh Corgi
+entity.CopiousDogs.pitbull.name=Pitbull Terrier
