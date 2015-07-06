@@ -11,15 +11,21 @@ import org.lwjgl.opengl.GL11;
 
 import com.github.copiousdogs.entity.EntityDog;
 import com.github.copiousdogs.lib.Reference;
+import com.github.copiousdogs.server.entity.EntityDogServer;
+
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 
 public class GuiNameDog extends GuiScreen {
 
 	private EntityDog dog;
+	private EntityDogServer dogserver;
 	private GuiTextField nameField;
 	
-	public GuiNameDog(EntityDog dog) {
+	public GuiNameDog(EntityDog dog, EntityDogServer dogserver) {
 		
 		this.dog = dog;
+		this.dogserver = dogserver;
 	}
 	
 	@Override
@@ -40,12 +46,22 @@ public class GuiNameDog extends GuiScreen {
 			
 			String comp = nameField.getText().replaceAll("\\s", "");
 			
-			if (comp != "") {
-				
-				dog.setCustomNameTag(nameField.getText());
+			if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
+			{
+				if (comp != "") {
+					dog.setDogname(nameField.getText());
+				}
+			}
+			
+			if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
+			{
+				if (comp != "") {
+					dogserver.setDogname(nameField.getText());
+				}
 			}
 			
 			this.mc.displayGuiScreen(null);
+			dog.doname();
 		}
 	}
 	

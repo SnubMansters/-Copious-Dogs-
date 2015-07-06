@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
@@ -11,11 +12,14 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityTameable;
@@ -28,6 +32,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
+import com.github.copiousdogs.client.gui.GuiDogInfo;
 import com.github.copiousdogs.content.CopiousDogsItems;
 import com.github.copiousdogs.server.entity.ai.EntityAIBegBiscuit;
 import com.github.copiousdogs.server.entity.ai.EntityAIEatDogDish;
@@ -50,6 +55,7 @@ public class EntityDogServer extends EntityTameable
 	public float walkSpeed;
 	public float runSpeed;
 	private String breed;
+	private static String dogname;
 	
 	private static final IAttribute aggressiveness = (new RangedAttribute("aggressiveness", 5.0D, 1.0D, 10.0D)).setDescription("Aggressiveness").setShouldWatch(true);
 	private static final IAttribute energy = (new RangedAttribute("energy", 5.0D, 1.0D, 10.0D)).setDescription("Energy").setShouldWatch(true);
@@ -59,6 +65,27 @@ public class EntityDogServer extends EntityTameable
 	public EntityDogServer(World p_i1604_1_, float speed, String breed)
 	{
 		super(p_i1604_1_);
+		
+		this.getNavigator().setAvoidsWater(true);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0D, true));
+        this.tasks.addTask(6, new EntityAIMate(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
+		this.tasks.addTask(1, new EntityAIPanicBOA(this, runSpeed * 1.4f));
+		//this.tasks.addTask(2, new EntityAIReturnToOwner(this, runSpeed));
+		this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.35f));
+		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, .75f, true));
+		this.tasks.addTask(5, new EntityAIEatDogDish(this, 5, walkSpeed));
+		this.tasks.addTask(6, new EntityAIFollowOwnerLeashed(this, runSpeed, 2f, 5f));
+		this.tasks.addTask(7, new EntityAIBegBiscuit(this, 10F));
+		this.tasks.addTask(8, new EntityAIWanderBOE(this, walkSpeed, runSpeed));
+		this.targetTasks.addTask(0, new EntityAIOwnerHurtByTargetBOA(this));
+		this.targetTasks.addTask(1, new EntityAIOwnerHurtTargetBOA(this));
+		this.targetTasks.addTask(2, new EntityAIHurtByTargetBOA(this, false));
+		this.targetTasks.addTask(3, new EntityAITargetNonTamedBOA(this, EntityCreeper.class, 200, true));
 		
 		if (ConfigurationHandler.INDIVIDUAL_TRAITS)
 		{
@@ -77,24 +104,6 @@ public class EntityDogServer extends EntityTameable
 		this.runSpeed = speed * 1.2f  * speedModifier;
 		this.breed = breed;
 		
-		this.getNavigator().setAvoidsWater(true);
-		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIPanicBOA(this, runSpeed * 1.4f));
-		this.tasks.addTask(2, this.aiSit);
-		//this.tasks.addTask(2, new EntityAIReturnToOwner(this, runSpeed));
-		this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.35f));
-		this.tasks.addTask(3, new EntityAIMateNearTorch(this, walkSpeed, 10f));
-		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, .75f, true));
-		this.tasks.addTask(5, new EntityAIEatDogDish(this, 5, walkSpeed));
-		this.tasks.addTask(6, new EntityAIFollowOwnerLeashed(this, runSpeed, 2f, 5f));
-		this.tasks.addTask(7, new EntityAIBegBiscuit(this, 10F));
-		this.tasks.addTask(8, new EntityAIWanderBOE(this, walkSpeed, runSpeed));
-		this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 0f));
-		this.tasks.addTask(10, new EntityAILookIdle(this));
-		this.targetTasks.addTask(0, new EntityAIOwnerHurtByTargetBOA(this));
-		this.targetTasks.addTask(1, new EntityAIOwnerHurtTargetBOA(this));
-		this.targetTasks.addTask(2, new EntityAIHurtByTargetBOA(this, false));
-		this.targetTasks.addTask(3, new EntityAITargetNonTamedBOA(this, EntitySheep.class, 200, true));
 	}
 
 	@Override
@@ -106,19 +115,6 @@ public class EntityDogServer extends EntityTameable
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15);
 	}
 	
-    @SideOnly(Side.CLIENT)
-    protected void spawnDogParticles(boolean p_110216_1_)
-    {
-        String s = p_110216_1_ ? "heart" : "smoke";
-
-        for (int i = 0; i < 7; ++i)
-        {
-            double d0 = this.rand.nextGaussian() * 0.02D;
-            double d1 = this.rand.nextGaussian() * 0.02D;
-            double d2 = this.rand.nextGaussian() * 0.02D;
-            this.worldObj.spawnParticle(s, this.posX + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, this.posY + 0.5D + (double)(this.rand.nextFloat() * this.height), this.posZ + (double)(this.rand.nextFloat() * this.width * 2.0F) - (double)this.width, d0, d1, d2);
-        }
-    }
 	
 	@Override
 	protected float getSoundPitch()
@@ -303,7 +299,14 @@ public class EntityDogServer extends EntityTameable
 		if (getTameValue() >= value)
 		{
 			setTamed(true);
-			func_152115_b(player.getUniqueID().toString().toString());
+			func_152115_b(player.getUniqueID().toString());
+			
+			if (worldObj.isRemote) {
+				
+			}
+		}
+		else
+		{
 		}
 	}
 	
@@ -344,6 +347,11 @@ public class EntityDogServer extends EntityTameable
 		return false;
 	}
 	
+	private void doname()
+	{
+		this.setCustomNameTag(getDogname());
+	}
+	
 	@Override
 	public boolean interact(EntityPlayer player)
 	{
@@ -353,7 +361,7 @@ public class EntityDogServer extends EntityTameable
 			if (stack != null)
 			{
 				if (this.isBreedingItem(stack) && this.getGrowingAge() == 0 && !this.isInLove() 
-						&& this.isTamed() && this.getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+						&& this.isTamed() && this.getOwner().getUniqueID().equals(player.getUniqueID()))
 				{
 					player.swingItem();
 					
@@ -388,9 +396,10 @@ public class EntityDogServer extends EntityTameable
 				}
 				if (stack.getItem() == CopiousDogsItems.dogCollar)
 				{
-					if (this.isTamed() && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (this.isTamed() && getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						player.swingItem();
+						this.setCustomNameTag(this.getCustomNameTag());
 						byte color = getCollarColor();
 
 						setCollarColor((byte) ItemDogCollar.getDyeFromItem(stack.getItemDamage()));
@@ -419,7 +428,7 @@ public class EntityDogServer extends EntityTameable
 				
 				if (stack.getItem() == CopiousDogsItems.leash)
 				{
-					if (hasCollar() && !hasLeash() && this.getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (hasCollar() && !hasLeash() && this.getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						player.swingItem();
 						setHasLeash(true);
@@ -433,9 +442,10 @@ public class EntityDogServer extends EntityTameable
 					}
 				}
 				
+				
 				if (stack.getItem() == CopiousDogsItems.analyzer)
 				{
-					if (isTamed() && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (isTamed() && getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						return true;
 					}
@@ -443,7 +453,7 @@ public class EntityDogServer extends EntityTameable
 			}
 			else {
 
-				if (isTamed() && getOwner().getUniqueID().toString() != null && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString())) 
+				if (isTamed() && getOwner() != null && getOwner().getUniqueID().equals(player.getUniqueID())) 
 				{
 					if (player.isSneaking())
 					{
@@ -479,8 +489,6 @@ public class EntityDogServer extends EntityTameable
 					}
 				}
 			}
-		
-		
 		return false;
 	}
 	
@@ -569,5 +577,13 @@ public class EntityDogServer extends EntityTameable
 		
 		setEnergy(tag.getDouble("Energy"));
 		setAggressiveness(tag.getDouble("Aggressiveness"));
+	}
+
+	public static String getDogname() {
+		return dogname;
+	}
+
+	public static void setDogname(String dogname) {
+		EntityDogServer.dogname = dogname;
 	}
 }

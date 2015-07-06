@@ -28,16 +28,19 @@ import com.github.copiousdogs.entity.EntityCollie;
 import com.github.copiousdogs.entity.EntityDachshund;
 import com.github.copiousdogs.entity.EntityDalmatian;
 import com.github.copiousdogs.entity.EntityDoberman;
+import com.github.copiousdogs.entity.EntityDunno;
 import com.github.copiousdogs.entity.EntityEskimoSpitz;
 import com.github.copiousdogs.entity.EntityFrenchBulldog;
 import com.github.copiousdogs.entity.EntityGermanShepherd;
 import com.github.copiousdogs.entity.EntityGoldenRetriever;
 import com.github.copiousdogs.entity.EntityGreatDane;
 import com.github.copiousdogs.entity.EntityHusky;
+import com.github.copiousdogs.entity.EntityMolly;
 import com.github.copiousdogs.entity.EntityNewfoundland;
 import com.github.copiousdogs.entity.EntityPapillon;
 import com.github.copiousdogs.entity.EntityPembroke;
 import com.github.copiousdogs.entity.EntityPitbull;
+import com.github.copiousdogs.entity.EntityPolly;
 import com.github.copiousdogs.entity.EntityPomeranian;
 import com.github.copiousdogs.entity.EntityPoodle;
 import com.github.copiousdogs.entity.EntityPug;
@@ -173,114 +176,113 @@ public class CopiousDogs
 		SpawnMap.registerSpawnBiomes(EntityEskimoSpitz.class, Type.COLD);
 		
 		
-		EntityRegistry.registerModEntity(EntityBeagle.class, "beagle", 0, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(0, EntityBeagle.class);
-		EntityList.entityEggs.put(0, new EntityEggInfo(0, 0xCE935F, 0x685043));
+		EntityRegistry.registerModEntity(EntityBeagle.class, "beagle", ConfigurationHandler.DOG_ID0, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID0, EntityBeagle.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID0, new EntityEggInfo(ConfigurationHandler.DOG_ID0, 0xCE935F, 0x685043));
 		
-		EntityRegistry.registerModEntity(EntityBerneseMountain.class, "bernese_mountain", 1, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(1, EntityBerneseMountain.class);
-		EntityList.entityEggs.put(1, new EntityEggInfo(1, 0x0B0C12, 0x723510));
+		EntityRegistry.registerModEntity(EntityBerneseMountain.class, "bernese_mountain", ConfigurationHandler.DOG_ID1, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID1, EntityBerneseMountain.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID1, new EntityEggInfo(ConfigurationHandler.DOG_ID1, 0x0B0C12, 0x723510));
 		
-		EntityRegistry.registerModEntity(EntityGoldenRetriever.class, "golden_retriever", 2, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(2, EntityGoldenRetriever.class);
-		EntityList.entityEggs.put(2, new EntityEggInfo(2, 0xBC8E5F, 0xDDCDB6));
+		EntityRegistry.registerModEntity(EntityGoldenRetriever.class, "golden_retriever", ConfigurationHandler.DOG_ID2, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID2, EntityGoldenRetriever.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID2, new EntityEggInfo(ConfigurationHandler.DOG_ID2, 0xBC8E5F, 0xDDCDB6));
 		
-		EntityRegistry.registerModEntity(EntityHusky.class, "husky", 3, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(3, EntityHusky.class);
-		EntityList.entityEggs.put(3, new EntityEggInfo(3, 0x2B2E2D, 0x7E807D));
+		EntityRegistry.registerModEntity(EntityHusky.class, "husky", ConfigurationHandler.DOG_ID3, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID3, EntityHusky.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID3, new EntityEggInfo(ConfigurationHandler.DOG_ID3, 0x2B2E2D, 0x7E807D));
 		
-		EntityRegistry.registerModEntity(EntityChihuahua.class, "chihuahua", 4, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(4, EntityChihuahua.class);
-		EntityList.entityEggs.put(4, new EntityEggInfo(4, 0xC7A087, 0x9E7F6B));
+		EntityRegistry.registerModEntity(EntityChihuahua.class, "chihuahua", ConfigurationHandler.DOG_ID4, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID4, EntityChihuahua.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID4, new EntityEggInfo(ConfigurationHandler.DOG_ID4, 0xC7A087, 0x9E7F6B));
 		
-		EntityRegistry.registerModEntity(EntityFrenchBulldog.class, "french_bulldog", 5, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(5, EntityFrenchBulldog.class);
-		EntityList.entityEggs.put(5, new EntityEggInfo(5, 0x151618, 0xBDBDB7));
+		EntityRegistry.registerModEntity(EntityFrenchBulldog.class, "french_bulldog", ConfigurationHandler.DOG_ID5, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID5, EntityFrenchBulldog.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID5, new EntityEggInfo(ConfigurationHandler.DOG_ID5, 0x151618, 0xBDBDB7));
 		
-		EntityRegistry.registerModEntity(EntityGermanShepherd.class, "german_shepherd", 6, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(6, EntityGermanShepherd.class);
-		EntityList.entityEggs.put(6, new EntityEggInfo(6, 0xAD754F, 0x17141B));
+		EntityRegistry.registerModEntity(EntityGermanShepherd.class, "german_shepherd", ConfigurationHandler.DOG_ID6, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID6, EntityGermanShepherd.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID6, new EntityEggInfo(ConfigurationHandler.DOG_ID6, 0xAD754F, 0x17141B));
 		
-		EntityRegistry.registerModEntity(EntityDalmatian.class, "dalmatian", 7, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(7, EntityDalmatian.class);
-		EntityList.entityEggs.put(7, new EntityEggInfo(7, 0xFFFFFF, 0x000000));
+		EntityRegistry.registerModEntity(EntityDalmatian.class, "dalmatian", ConfigurationHandler.DOG_ID7, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID7, EntityDalmatian.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID7, new EntityEggInfo(ConfigurationHandler.DOG_ID7, 0xFFFFFF, 0x000000));
 		
-		EntityRegistry.registerModEntity(EntityGreatDane.class, "great_dane", 8, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(8, EntityGreatDane.class);
-		EntityList.entityEggs.put(8, new EntityEggInfo(8, 0xDFB188, 0xC79B69));
+		EntityRegistry.registerModEntity(EntityGreatDane.class, "great_dane", ConfigurationHandler.DOG_ID8, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID8, EntityGreatDane.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID8, new EntityEggInfo(ConfigurationHandler.DOG_ID8, 0xDFB188, 0xC79B69));
 		
-		EntityRegistry.registerModEntity(EntityBoxer.class, "boxer", 9, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(9, EntityBoxer.class);
-		EntityList.entityEggs.put(9, new EntityEggInfo(9, 0x866331, 0xB7B1A8));
+		EntityRegistry.registerModEntity(EntityBoxer.class, "boxer", ConfigurationHandler.DOG_ID9, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID9, EntityBoxer.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID9, new EntityEggInfo(ConfigurationHandler.DOG_ID9, 0x866331, 0xB7B1A8));
 		
-		EntityRegistry.registerModEntity(EntityCardiganCorgi.class, "cardigan_corgi", 10, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(10, EntityCardiganCorgi.class);
-		EntityList.entityEggs.put(10, new EntityEggInfo(10, 0xA46F43, 0x827A72));
+		EntityRegistry.registerModEntity(EntityCardiganCorgi.class, "cardigan_corgi", ConfigurationHandler.DOG_ID10, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID10, EntityCardiganCorgi.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID10, new EntityEggInfo(ConfigurationHandler.DOG_ID10, 0xA46F43, 0x827A72));
 		
-		EntityRegistry.registerModEntity(EntityCollie.class, "collie", 11, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(11, EntityCollie.class);
-		EntityList.entityEggs.put(11, new EntityEggInfo(11, 0x9F653D, 0xDAD9DB));
+		EntityRegistry.registerModEntity(EntityCollie.class, "collie", ConfigurationHandler.DOG_ID11, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID11, EntityCollie.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID11, new EntityEggInfo(ConfigurationHandler.DOG_ID11, 0x9F653D, 0xDAD9DB));
 		
-		EntityRegistry.registerModEntity(EntityDoberman.class, "doberman", 12, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(12, EntityDoberman.class);
-		EntityList.entityEggs.put(12, new EntityEggInfo(12, 0x1C1B1B, 0x7D462D));
+		EntityRegistry.registerModEntity(EntityDoberman.class, "doberman", ConfigurationHandler.DOG_ID12, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID12, EntityDoberman.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID12, new EntityEggInfo(ConfigurationHandler.DOG_ID12, 0x1C1B1B, 0x7D462D));
 		
-		EntityRegistry.registerModEntity(EntityPomeranian.class, "pomeranian", 13, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(13, EntityPomeranian.class);
-		EntityList.entityEggs.put(13, new EntityEggInfo(13, 0x9C531B, 0xC0854A));
+		EntityRegistry.registerModEntity(EntityPomeranian.class, "pomeranian", ConfigurationHandler.DOG_ID13, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID13, EntityPomeranian.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID13, new EntityEggInfo(ConfigurationHandler.DOG_ID13, 0x9C531B, 0xC0854A));
 		
-		EntityRegistry.registerModEntity(EntityPoodle.class, "poodle", 14, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(14, EntityPoodle.class);
-		EntityList.entityEggs.put(14, new EntityEggInfo(14, 0xC2C7D4, 0xD7DADF));
+		EntityRegistry.registerModEntity(EntityPoodle.class, "poodle", ConfigurationHandler.DOG_ID14, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID14, EntityPoodle.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID14, new EntityEggInfo(ConfigurationHandler.DOG_ID14, 0xC2C7D4, 0xD7DADF));
 		
-		EntityRegistry.registerModEntity(EntityPug.class, "pug", 15, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(15, EntityPug.class);
-		EntityList.entityEggs.put(15, new EntityEggInfo(15, 0xCDA27F, 0xD2B094));
+		EntityRegistry.registerModEntity(EntityPug.class, "pug", ConfigurationHandler.DOG_ID15, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID15, EntityPug.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID15, new EntityEggInfo(ConfigurationHandler.DOG_ID15, 0xCDA27F, 0xD2B094));
 		
-		EntityRegistry.registerModEntity(EntitySaintBernard.class, "saint_bernard", 16, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(16, EntitySaintBernard.class);
-		EntityList.entityEggs.put(16, new EntityEggInfo(16, 0x793F1F, 0xC6BEAA));
+		EntityRegistry.registerModEntity(EntitySaintBernard.class, "saint_bernard", ConfigurationHandler.DOG_ID16, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID16, EntitySaintBernard.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID16, new EntityEggInfo(ConfigurationHandler.DOG_ID16, 0x793F1F, 0xC6BEAA));
 		
-		EntityRegistry.registerModEntity(EntityYorkshire.class, "yorkshire", 17, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(17, EntityYorkshire.class);
-		EntityList.entityEggs.put(17, new EntityEggInfo(17, 0x1F1E1D, 0x805234));
+		EntityRegistry.registerModEntity(EntityYorkshire.class, "yorkshire", ConfigurationHandler.DOG_ID17, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID17, EntityYorkshire.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID17, new EntityEggInfo(ConfigurationHandler.DOG_ID17, 0x1F1E1D, 0x805234));
 		
-		EntityRegistry.registerModEntity(EntityAmericanBulldog.class, "american_bulldog", 18, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(18, EntityAmericanBulldog.class);
-		EntityList.entityEggs.put(18, new EntityEggInfo(18, 0xC6C0BE, 0x8A5D40));
+		EntityRegistry.registerModEntity(EntityAmericanBulldog.class, "american_bulldog", ConfigurationHandler.DOG_ID18, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID18, EntityAmericanBulldog.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID18, new EntityEggInfo(ConfigurationHandler.DOG_ID18, 0xC6C0BE, 0x8A5D40));
 		
-		EntityRegistry.registerModEntity(EntityEskimoSpitz.class, "eskimo_spitz", 19, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(19, EntityEskimoSpitz.class);
-		EntityList.entityEggs.put(19, new EntityEggInfo(19, 0xE9E2E0, 0xD5D0D3));
+		EntityRegistry.registerModEntity(EntityEskimoSpitz.class, "eskimo_spitz", ConfigurationHandler.DOG_ID19, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID19, EntityEskimoSpitz.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID19, new EntityEggInfo(ConfigurationHandler.DOG_ID19, 0xE9E2E0, 0xD5D0D3));
 		
-		EntityRegistry.registerModEntity(EntityAustralianShepherd.class, "australian_shepherd", 20, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(20, EntityAustralianShepherd.class);
-		EntityList.entityEggs.put(20, new EntityEggInfo(20, 0xA9AEAE, 0x1E272C));
+		EntityRegistry.registerModEntity(EntityAustralianShepherd.class, "australian_shepherd", ConfigurationHandler.DOG_ID20, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID20, EntityAustralianShepherd.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID20, new EntityEggInfo(ConfigurationHandler.DOG_ID20, 0xA9AEAE, 0x1E272C));
 		
-		EntityRegistry.registerModEntity(EntityBloodhound.class, "bloodhound", 21, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(21, EntityBloodhound.class);
-		EntityList.entityEggs.put(21, new EntityEggInfo(21, 0xB97530, 0x1E1816));
+		EntityRegistry.registerModEntity(EntityBloodhound.class, "bloodhound", ConfigurationHandler.DOG_ID21, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID21, EntityBloodhound.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID21, new EntityEggInfo(ConfigurationHandler.DOG_ID21, 0xB97530, 0x1E1816));
 		
-		EntityRegistry.registerModEntity(EntityDachshund.class, "dachshund", 22, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(22, EntityDachshund.class);
-		EntityList.entityEggs.put(22, new EntityEggInfo(22, 0x1C202E, 0x8F5E40));
+		EntityRegistry.registerModEntity(EntityDachshund.class, "dachshund", ConfigurationHandler.DOG_ID22, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID22, EntityDachshund.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID22, new EntityEggInfo(ConfigurationHandler.DOG_ID22, 0x1C202E, 0x8F5E40));
 		
-		EntityRegistry.registerModEntity(EntityNewfoundland.class, "newfoundland", 23, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(23, EntityNewfoundland.class);
-		EntityList.entityEggs.put(23, new EntityEggInfo(23, 0x161E18, 0x383E3C));
+		EntityRegistry.registerModEntity(EntityNewfoundland.class, "newfoundland", ConfigurationHandler.DOG_ID23, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID23, EntityNewfoundland.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID23, new EntityEggInfo(ConfigurationHandler.DOG_ID23, 0x161E18, 0x383E3C));
 		
-		EntityRegistry.registerModEntity(EntityPapillon.class, "papillon", 24, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(24, EntityPapillon.class);
-		EntityList.entityEggs.put(24, new EntityEggInfo(24, 0xDDDEDC, 0x8B5832));
+		EntityRegistry.registerModEntity(EntityPapillon.class, "papillon", ConfigurationHandler.DOG_ID24, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID24, EntityPapillon.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID24, new EntityEggInfo(ConfigurationHandler.DOG_ID24, 0xDDDEDC, 0x8B5832));
 		
-		EntityRegistry.registerModEntity(EntityPembroke.class, "pembroke", 25, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(25, EntityPembroke.class);
-		EntityList.entityEggs.put(25, new EntityEggInfo(25, 0xA56E40, 0xDCC8B2));
+		EntityRegistry.registerModEntity(EntityPembroke.class, "pembroke", ConfigurationHandler.DOG_ID25, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID25, EntityPembroke.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID25, new EntityEggInfo(ConfigurationHandler.DOG_ID25, 0xA56E40, 0xDCC8B2));
 		
-		EntityRegistry.registerModEntity(EntityPitbull.class, "pitbull", 26, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(26, EntityPitbull.class);
-		EntityList.entityEggs.put(26, new EntityEggInfo(26, 0x615655, 0x897C7C));
-		
+		EntityRegistry.registerModEntity(EntityPembroke.class, "pitbull", (ConfigurationHandler.DOG_ID26), this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID26, EntityPitbull.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID26, new EntityEggInfo(ConfigurationHandler.DOG_ID26, 0x615655, 0x897C7C));
 	}
 	private void registerEntitiesServer()
 	{
@@ -313,113 +315,113 @@ public class CopiousDogs
 		SpawnMap.registerSpawnBiomes(com.github.copiousdogs.server.entity.EntityHusky.class, Type.COLD);
 		SpawnMap.registerSpawnBiomes(com.github.copiousdogs.server.entity.EntityEskimoSpitz.class, Type.COLD);
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBeagle.class, "beagle", 0, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(0, com.github.copiousdogs.server.entity.EntityBeagle.class);
-		EntityList.entityEggs.put(0, new EntityEggInfo(0, 0xCE935F, 0x685043));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBeagle.class, "beagle", ConfigurationHandler.DOG_ID0, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID0, com.github.copiousdogs.server.entity.EntityBeagle.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID0, new EntityEggInfo(ConfigurationHandler.DOG_ID0, 0xCE935F, 0x685043));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBerneseMountain.class, "bernese_mountain", 1, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(1, com.github.copiousdogs.server.entity.EntityBerneseMountain.class);
-		EntityList.entityEggs.put(1, new EntityEggInfo(1, 0x0B0C12, 0x723510));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBerneseMountain.class, "bernese_mountain", ConfigurationHandler.DOG_ID1, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID1, com.github.copiousdogs.server.entity.EntityBerneseMountain.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID1, new EntityEggInfo(ConfigurationHandler.DOG_ID1, 0x0B0C12, 0x723510));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGoldenRetriever.class, "golden_retriever", 2, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(2, com.github.copiousdogs.server.entity.EntityGoldenRetriever.class);
-		EntityList.entityEggs.put(2, new EntityEggInfo(2, 0xBC8E5F, 0xDDCDB6));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGoldenRetriever.class, "golden_retriever", ConfigurationHandler.DOG_ID2, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID2, com.github.copiousdogs.server.entity.EntityGoldenRetriever.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID2, new EntityEggInfo(ConfigurationHandler.DOG_ID2, 0xBC8E5F, 0xDDCDB6));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityHusky.class, "husky", 3, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(3, com.github.copiousdogs.server.entity.EntityHusky.class);
-		EntityList.entityEggs.put(3, new EntityEggInfo(3, 0x2B2E2D, 0x7E807D));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityHusky.class, "husky", ConfigurationHandler.DOG_ID3, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID3, com.github.copiousdogs.server.entity.EntityHusky.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID3, new EntityEggInfo(ConfigurationHandler.DOG_ID3, 0x2B2E2D, 0x7E807D));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityChihuahua.class, "chihuahua", 4, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(4, com.github.copiousdogs.server.entity.EntityChihuahua.class);
-		EntityList.entityEggs.put(4, new EntityEggInfo(4, 0xC7A087, 0x9E7F6B));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityChihuahua.class, "chihuahua", ConfigurationHandler.DOG_ID4, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID4, com.github.copiousdogs.server.entity.EntityChihuahua.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID4, new EntityEggInfo(ConfigurationHandler.DOG_ID4, 0xC7A087, 0x9E7F6B));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityFrenchBulldog.class, "french_bulldog", 5, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(5, com.github.copiousdogs.server.entity.EntityFrenchBulldog.class);
-		EntityList.entityEggs.put(5, new EntityEggInfo(5, 0x151618, 0xBDBDB7));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityFrenchBulldog.class, "french_bulldog", ConfigurationHandler.DOG_ID5, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID5, com.github.copiousdogs.server.entity.EntityFrenchBulldog.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID5, new EntityEggInfo(ConfigurationHandler.DOG_ID5, 0x151618, 0xBDBDB7));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGermanShepherd.class, "german_shepherd", 6, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(6, com.github.copiousdogs.server.entity.EntityGermanShepherd.class);
-		EntityList.entityEggs.put(6, new EntityEggInfo(6, 0xAD754F, 0x17141B));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGermanShepherd.class, "german_shepherd", ConfigurationHandler.DOG_ID6, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID6, com.github.copiousdogs.server.entity.EntityGermanShepherd.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID6, new EntityEggInfo(ConfigurationHandler.DOG_ID6, 0xAD754F, 0x17141B));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDalmatian.class, "dalmatian", 7, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(7, com.github.copiousdogs.server.entity.EntityDalmatian.class);
-		EntityList.entityEggs.put(7, new EntityEggInfo(7, 0xFFFFFF, 0x000000));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDalmatian.class, "dalmatian", ConfigurationHandler.DOG_ID7, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID7, com.github.copiousdogs.server.entity.EntityDalmatian.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID7, new EntityEggInfo(ConfigurationHandler.DOG_ID7, 0xFFFFFF, 0x000000));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGreatDane.class, "great_dane", 8, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(8, com.github.copiousdogs.server.entity.EntityGreatDane.class);
-		EntityList.entityEggs.put(8, new EntityEggInfo(8, 0xDFB188, 0xC79B69));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityGreatDane.class, "great_dane", ConfigurationHandler.DOG_ID8, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID8, com.github.copiousdogs.server.entity.EntityGreatDane.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID8, new EntityEggInfo(ConfigurationHandler.DOG_ID8, 0xDFB188, 0xC79B69));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBoxer.class, "boxer", 9, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(9, com.github.copiousdogs.server.entity.EntityBoxer.class);
-		EntityList.entityEggs.put(9, new EntityEggInfo(9, 0x866331, 0xB7B1A8));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBoxer.class, "boxer", ConfigurationHandler.DOG_ID9, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID9, com.github.copiousdogs.server.entity.EntityBoxer.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID9, new EntityEggInfo(ConfigurationHandler.DOG_ID9, 0x866331, 0xB7B1A8));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityCardiganCorgi.class, "cardigan_corgi", 10, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(10, com.github.copiousdogs.server.entity.EntityCardiganCorgi.class);
-		EntityList.entityEggs.put(10, new EntityEggInfo(10, 0xA46F43, 0x827A72));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityCardiganCorgi.class, "cardigan_corgi", ConfigurationHandler.DOG_ID10, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID10, com.github.copiousdogs.server.entity.EntityCardiganCorgi.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID10, new EntityEggInfo(ConfigurationHandler.DOG_ID10, 0xA46F43, 0x827A72));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityCollie.class, "collie", 11, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(11, com.github.copiousdogs.server.entity.EntityCollie.class);
-		EntityList.entityEggs.put(11, new EntityEggInfo(11, 0x9F653D, 0xDAD9DB));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityCollie.class, "collie", ConfigurationHandler.DOG_ID11, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID11, com.github.copiousdogs.server.entity.EntityCollie.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID11, new EntityEggInfo(ConfigurationHandler.DOG_ID11, 0x9F653D, 0xDAD9DB));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDoberman.class, "doberman", 12, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(12, com.github.copiousdogs.server.entity.EntityDoberman.class);
-		EntityList.entityEggs.put(12, new EntityEggInfo(12, 0x1C1B1B, 0x7D462D));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDoberman.class, "doberman", ConfigurationHandler.DOG_ID12, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID12, com.github.copiousdogs.server.entity.EntityDoberman.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID12, new EntityEggInfo(ConfigurationHandler.DOG_ID12, 0x1C1B1B, 0x7D462D));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPomeranian.class, "pomeranian", 13, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(13, com.github.copiousdogs.server.entity.EntityPomeranian.class);
-		EntityList.entityEggs.put(13, new EntityEggInfo(13, 0x9C531B, 0xC0854A));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPomeranian.class, "pomeranian", ConfigurationHandler.DOG_ID13, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID13, com.github.copiousdogs.server.entity.EntityPomeranian.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID13, new EntityEggInfo(ConfigurationHandler.DOG_ID13, 0x9C531B, 0xC0854A));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPoodle.class, "poodle", 14, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(14, com.github.copiousdogs.server.entity.EntityPoodle.class);
-		EntityList.entityEggs.put(14, new EntityEggInfo(14, 0xC2C7D4, 0xD7DADF));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPoodle.class, "poodle", ConfigurationHandler.DOG_ID14, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID14, com.github.copiousdogs.server.entity.EntityPoodle.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID14, new EntityEggInfo(ConfigurationHandler.DOG_ID14, 0xC2C7D4, 0xD7DADF));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPug.class, "pug", 15, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(15, com.github.copiousdogs.server.entity.EntityPug.class);
-		EntityList.entityEggs.put(15, new EntityEggInfo(15, 0xCDA27F, 0xD2B094));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPug.class, "pug", ConfigurationHandler.DOG_ID15, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID15, com.github.copiousdogs.server.entity.EntityPug.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID15, new EntityEggInfo(ConfigurationHandler.DOG_ID15, 0xCDA27F, 0xD2B094));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntitySaintBernard.class, "saint_bernard", 16, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(16, com.github.copiousdogs.server.entity.EntitySaintBernard.class);
-		EntityList.entityEggs.put(16, new EntityEggInfo(16, 0x793F1F, 0xC6BEAA));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntitySaintBernard.class, "saint_bernard", ConfigurationHandler.DOG_ID16, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID16, com.github.copiousdogs.server.entity.EntitySaintBernard.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID16, new EntityEggInfo(ConfigurationHandler.DOG_ID16, 0x793F1F, 0xC6BEAA));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityYorkshire.class, "yorkshire", 17, this, 40, 3, true);
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityYorkshire.class, "yorkshire", ConfigurationHandler.DOG_ID17, this, 40, 3, true);
 		EntityList.IDtoClassMapping.put(17, com.github.copiousdogs.server.entity.EntityYorkshire.class);
-		EntityList.entityEggs.put(17, new EntityEggInfo(17, 0x1F1E1D, 0x805234));
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID17, new EntityEggInfo(ConfigurationHandler.DOG_ID17, 0x1F1E1D, 0x805234));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityAmericanBulldog.class, "american_bulldog", 18, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(18, com.github.copiousdogs.server.entity.EntityAmericanBulldog.class);
-		EntityList.entityEggs.put(18, new EntityEggInfo(18, 0xC6C0BE, 0x8A5D40));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityAmericanBulldog.class, "american_bulldog", ConfigurationHandler.DOG_ID18, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID18, com.github.copiousdogs.server.entity.EntityAmericanBulldog.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID18, new EntityEggInfo(ConfigurationHandler.DOG_ID18, 0xC6C0BE, 0x8A5D40));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityEskimoSpitz.class, "eskimo_spitz", 19, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(19, com.github.copiousdogs.server.entity.EntityEskimoSpitz.class);
-		EntityList.entityEggs.put(19, new EntityEggInfo(19, 0xE9E2E0, 0xD5D0D3));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityEskimoSpitz.class, "eskimo_spitz", ConfigurationHandler.DOG_ID19, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID19, com.github.copiousdogs.server.entity.EntityEskimoSpitz.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID19, new EntityEggInfo(ConfigurationHandler.DOG_ID19, 0xE9E2E0, 0xD5D0D3));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityAustralianShepherd.class, "australian_shepherd", 20, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(20, com.github.copiousdogs.server.entity.EntityAustralianShepherd.class);
-		EntityList.entityEggs.put(20, new EntityEggInfo(20, 0xA9AEAE, 0x1E272C));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityAustralianShepherd.class, "australian_shepherd", ConfigurationHandler.DOG_ID20, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID20, com.github.copiousdogs.server.entity.EntityAustralianShepherd.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID20, new EntityEggInfo(ConfigurationHandler.DOG_ID20, 0xA9AEAE, 0x1E272C));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBloodhound.class, "bloodhound", 21, this, 40, 3, true);
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityBloodhound.class, "bloodhound", ConfigurationHandler.DOG_ID21, this, 40, 3, true);
 		EntityList.IDtoClassMapping.put(21, com.github.copiousdogs.server.entity.EntityBloodhound.class);
-		EntityList.entityEggs.put(21, new EntityEggInfo(21, 0xB97530, 0x1E1816));
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID21, new EntityEggInfo(ConfigurationHandler.DOG_ID21, 0xB97530, 0x1E1816));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDachshund.class, "dachshund", 22, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(22, com.github.copiousdogs.server.entity.EntityDachshund.class);
-		EntityList.entityEggs.put(22, new EntityEggInfo(22, 0x1C202E, 0x8F5E40));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityDachshund.class, "dachshund", ConfigurationHandler.DOG_ID22, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID22, com.github.copiousdogs.server.entity.EntityDachshund.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID22, new EntityEggInfo(ConfigurationHandler.DOG_ID22, 0x1C202E, 0x8F5E40));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityNewfoundland.class, "newfoundland", 23, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(23, com.github.copiousdogs.server.entity.EntityNewfoundland.class);
-		EntityList.entityEggs.put(23, new EntityEggInfo(23, 0x161E18, 0x383E3C));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityNewfoundland.class, "newfoundland", ConfigurationHandler.DOG_ID23, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID23, com.github.copiousdogs.server.entity.EntityNewfoundland.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID23, new EntityEggInfo(ConfigurationHandler.DOG_ID23, 0x161E18, 0x383E3C));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPapillon.class, "papillon", 24, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(24, com.github.copiousdogs.server.entity.EntityPapillon.class);
-		EntityList.entityEggs.put(24, new EntityEggInfo(24, 0xDDDEDC, 0x8B5832));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPapillon.class, "papillon", ConfigurationHandler.DOG_ID24, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID24, com.github.copiousdogs.server.entity.EntityPapillon.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID24, new EntityEggInfo(ConfigurationHandler.DOG_ID24, 0xDDDEDC, 0x8B5832));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPembroke.class, "pembroke", 25, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(25, com.github.copiousdogs.server.entity.EntityPembroke.class);
-		EntityList.entityEggs.put(25, new EntityEggInfo(25, 0xA56E40, 0xDCC8B2));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPembroke.class, "pembroke", ConfigurationHandler.DOG_ID25, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID25, com.github.copiousdogs.server.entity.EntityPembroke.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID25, new EntityEggInfo(ConfigurationHandler.DOG_ID25, 0xA56E40, 0xDCC8B2));
 		
-		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPitbull.class, "pitbull", 26, this, 40, 3, true);
-		EntityList.IDtoClassMapping.put(26, com.github.copiousdogs.server.entity.EntityPitbull.class);
-		EntityList.entityEggs.put(26, new EntityEggInfo(26, 0x615655, 0x897C7C));
+		EntityRegistry.registerModEntity(com.github.copiousdogs.server.entity.EntityPitbull.class, "pitbull", ConfigurationHandler.DOG_ID26, this, 40, 3, true);
+		EntityList.IDtoClassMapping.put(ConfigurationHandler.DOG_ID26, com.github.copiousdogs.server.entity.EntityPitbull.class);
+		EntityList.entityEggs.put(ConfigurationHandler.DOG_ID26, new EntityEggInfo(ConfigurationHandler.DOG_ID26, 0x615655, 0x897C7C));
 		
 	}
 }

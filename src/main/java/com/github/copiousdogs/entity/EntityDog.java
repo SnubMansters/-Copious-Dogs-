@@ -12,11 +12,14 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityTameable;
@@ -44,6 +47,7 @@ import com.github.copiousdogs.entity.ai.EntityAITargetNonTamedBOA;
 import com.github.copiousdogs.entity.ai.EntityAIWanderBOE;
 import com.github.copiousdogs.handler.ConfigurationHandler;
 import com.github.copiousdogs.item.ItemDogCollar;
+import com.github.copiousdogs.server.entity.EntityDogServer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -53,6 +57,7 @@ public class EntityDog extends EntityTameable
 	public float walkSpeed;
 	public float runSpeed;
 	private String breed;
+	private static String dogname;
 	
 	private static final IAttribute aggressiveness = (new RangedAttribute("aggressiveness", 5.0D, 1.0D, 10.0D)).setDescription("Aggressiveness").setShouldWatch(true);
 	private static final IAttribute energy = (new RangedAttribute("energy", 5.0D, 1.0D, 10.0D)).setDescription("Energy").setShouldWatch(true);
@@ -62,6 +67,27 @@ public class EntityDog extends EntityTameable
 	public EntityDog(World p_i1604_1_, float speed, String breed)
 	{
 		super(p_i1604_1_);
+		
+		this.getNavigator().setAvoidsWater(true);
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(2, this.aiSit);
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0D, true));
+        this.tasks.addTask(6, new EntityAIMate(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(9, new EntityAILookIdle(this));
+		this.tasks.addTask(1, new EntityAIPanicBOA(this, runSpeed * 1.4f));
+		//this.tasks.addTask(2, new EntityAIReturnToOwner(this, runSpeed));
+		this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.35f));
+		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, .75f, true));
+		this.tasks.addTask(5, new EntityAIEatDogDish(this, 5, walkSpeed));
+		this.tasks.addTask(6, new EntityAIFollowOwnerLeashed(this, runSpeed, 2f, 5f));
+		this.tasks.addTask(7, new EntityAIBegBiscuit(this, 10F));
+		this.tasks.addTask(8, new EntityAIWanderBOE(this, walkSpeed, runSpeed));
+		this.targetTasks.addTask(0, new EntityAIOwnerHurtByTargetBOA(this));
+		this.targetTasks.addTask(1, new EntityAIOwnerHurtTargetBOA(this));
+		this.targetTasks.addTask(2, new EntityAIHurtByTargetBOA(this, false));
+		this.targetTasks.addTask(3, new EntityAITargetNonTamedBOA(this, EntityCreeper.class, 200, true));
 		
 		if (ConfigurationHandler.INDIVIDUAL_TRAITS)
 		{
@@ -80,24 +106,6 @@ public class EntityDog extends EntityTameable
 		this.runSpeed = speed * 1.2f  * speedModifier;
 		this.breed = breed;
 		
-		this.getNavigator().setAvoidsWater(true);
-		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIPanicBOA(this, runSpeed * 1.4f));
-		this.tasks.addTask(2, this.aiSit);
-		//this.tasks.addTask(2, new EntityAIReturnToOwner(this, runSpeed));
-		this.tasks.addTask(3, new EntityAILeapAtTarget(this, 0.35f));
-		this.tasks.addTask(3, new EntityAIMateNearTorch(this, walkSpeed, 10f));
-		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, .75f, true));
-		this.tasks.addTask(5, new EntityAIEatDogDish(this, 5, walkSpeed));
-		this.tasks.addTask(6, new EntityAIFollowOwnerLeashed(this, runSpeed, 2f, 5f));
-		this.tasks.addTask(7, new EntityAIBegBiscuit(this, 10F));
-		this.tasks.addTask(8, new EntityAIWanderBOE(this, walkSpeed, runSpeed));
-		this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 0f));
-		this.tasks.addTask(10, new EntityAILookIdle(this));
-		this.targetTasks.addTask(0, new EntityAIOwnerHurtByTargetBOA(this));
-		this.targetTasks.addTask(1, new EntityAIOwnerHurtTargetBOA(this));
-		this.targetTasks.addTask(2, new EntityAIHurtByTargetBOA(this, false));
-		this.targetTasks.addTask(3, new EntityAITargetNonTamedBOA(this, EntitySheep.class, 200, true));
 	}
 
 	@Override
@@ -311,7 +319,7 @@ public class EntityDog extends EntityTameable
 			
 			if (worldObj.isRemote) {
 				
-				Minecraft.getMinecraft().displayGuiScreen(new GuiNameDog(this));
+				Minecraft.getMinecraft().displayGuiScreen(new GuiNameDog(this, null));
 			}
 		}
 		else
@@ -357,6 +365,11 @@ public class EntityDog extends EntityTameable
 		return false;
 	}
 	
+	public void doname()
+	{
+		this.setCustomNameTag(getDogname());
+	}
+	
 	@Override
 	public boolean interact(EntityPlayer player)
 	{
@@ -366,7 +379,7 @@ public class EntityDog extends EntityTameable
 			if (stack != null)
 			{
 				if (this.isBreedingItem(stack) && this.getGrowingAge() == 0 && !this.isInLove() 
-						&& this.isTamed() && this.getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+						&& this.isTamed() && this.getOwner().getUniqueID().equals(player.getUniqueID()))
 				{
 					player.swingItem();
 					
@@ -401,9 +414,11 @@ public class EntityDog extends EntityTameable
 				}
 				if (stack.getItem() == CopiousDogsItems.dogCollar)
 				{
-					if (this.isTamed() && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (this.isTamed() && getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						player.swingItem();
+						this.doname();
+						this.setCustomNameTag(this.getCustomNameTag());
 						byte color = getCollarColor();
 
 						setCollarColor((byte) ItemDogCollar.getDyeFromItem(stack.getItemDamage()));
@@ -432,7 +447,7 @@ public class EntityDog extends EntityTameable
 				
 				if (stack.getItem() == CopiousDogsItems.leash)
 				{
-					if (hasCollar() && !hasLeash() && this.getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (hasCollar() && !hasLeash() && this.getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						player.swingItem();
 						setHasLeash(true);
@@ -448,7 +463,7 @@ public class EntityDog extends EntityTameable
 				
 				if (stack.getItem() == CopiousDogsItems.analyzer)
 				{
-					if (isTamed() && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString()))
+					if (isTamed() && getOwner().getUniqueID().equals(player.getUniqueID()))
 					{
 						Minecraft.getMinecraft().displayGuiScreen(new GuiDogInfo(this));
 						return true;
@@ -457,7 +472,7 @@ public class EntityDog extends EntityTameable
 			}
 			else {
 
-				if (isTamed() && getOwner().getUniqueID().toString() != null && getOwner().getUniqueID().toString().equals(player.getUniqueID().toString())) 
+				if (isTamed() && getOwner() != null && getOwner().getUniqueID().equals(player.getUniqueID())) 
 				{
 					if (player.isSneaking())
 					{
@@ -583,5 +598,13 @@ public class EntityDog extends EntityTameable
 		
 		setEnergy(tag.getDouble("Energy"));
 		setAggressiveness(tag.getDouble("Aggressiveness"));
+	}
+
+	public static String getDogname() {
+		return dogname;
+	}
+
+	public static void setDogname(String dogname) {
+		EntityDog.dogname = dogname;
 	}
 }
