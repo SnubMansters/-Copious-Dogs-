@@ -1,0 +1,41 @@
+Instructions!
+==================DOG=MODEL===========================
+1. Copy and Paste the Demo/between the brackets.txt
+2. Open Techne and select the wolf model as your base
+3. mold it to how you want it and export it to Java
+======================================================
+======================================================
+======================================================
+==================DOG=TEXTURES========================
+======================================================
+1. Create a new Folder and name it what you want to
+2. copy the ColorCharts image and place it inside
+3. edit the Texture using GIMP and "ColorCharts.txt"
+4. Save it as .png
+======================================================
+======================================================
+======================================================
+==================DOG=ENABLING========================
+======================================================
+1. remember that folder? Open the Java file for the
+model and Copy everything! then paste it between the
+Brackets in the "Demp/between
+ the brackets.java"
+
+2. replace name in the file with the name 
+you chose(this one can contain spaces), then save.
+
+3. Zip the folder and make sure the dog model and 
+the texture file inside are named the same as the folder.
+
+4. go into "%appdata%/.minecraft/config/copiousDogs
+/Copious T/UCD-Enable.json" and look for 
+"Enabled UCDogs" you should see 2 Demo lines that
+should look like this "- Enderdog1" "- Enderdog2"
+copy and paste a line and replace Enderdog1 with your
+folder/dog name.
+
+5. move the zip file into "%appdata%/.minecraft
+/config/copiousDogs/Copious T/UCDBreeds/"
+
+6 start up minecraft and enjoy your new dog/dogs!

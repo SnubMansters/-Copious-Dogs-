@@ -4,9 +4,11 @@ Wolfs are very popular in Minecraft, so why not add some dogs?  This mod adds a 
 
 # Credits
 
-Dramentiaras - Programmer
+Dramentiaras - EX Programmer
 
-wolfpupKG52 - Modelling and textures
+wolfpupKG52 - EX Modelling and textures(?)
+
+leonelmegaman - Modelling and textures
 
 TmmCrafter - Community manager and more
 
